@@ -1,3 +1,15 @@
+-- Author: Helge Skogly Holm
+--
+-- Glob patterns must start with a ! character.  Wildcards (*, ?) and
+-- character groups ([ABC123]) are supported.
+--
+-- Examples:
+-- match "a*b" "ab"   == True
+-- match "a*b" "abc"  == False
+-- match "a[bc]" "ac" == True
+-- match "???" "ab"   == False
+-- match "???" "abc"  == True
+
 module Globmatch (match) where
 
 data MEChar = Unesc Char
